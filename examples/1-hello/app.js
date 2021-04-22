@@ -3,11 +3,15 @@ const result = document.querySelector(".result");
 
 const fetchHelloWorld = async () => {
 
-    const resp = await axios.get("/api/hello-world");
+    try {
 
-    const { message } = resp.data;
+        const resp = await axios.get("/api/hello-world");
+        const { message } = resp.data;
+        result.innerText =  message;
 
-    result.innerText =  message;
+    } catch(error) {
+        result.innerText = "Some failure while fetching the function data. Please try again later";
+    }
 };
 
 fetchHelloWorld();
