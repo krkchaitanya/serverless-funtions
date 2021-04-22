@@ -10,7 +10,7 @@ const fetchHelloWorld = async () => {
         result.innerText =  message;
 
     } catch(error) {
-        result.innerText = "Some failure while fetching the function data. Please try again later";
+        result.innerText = `${error.response.data}`;
     }
 };
 

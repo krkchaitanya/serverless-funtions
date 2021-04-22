@@ -8,7 +8,6 @@ const renderBasicApiData = async () => {
     const products = 
     basiapiData.data.map(ele => {
         const {id, name, image:{url}, price} = ele;
-
         return `
         <article class="product">
             <img
@@ -23,8 +22,9 @@ const renderBasicApiData = async () => {
     }).join("");
 
     result.innerHTML = products;
+
    } catch(error) {
-    result.innerHTML = "<h4>Some failure while retrieving the data. Please try again later.</h4>"; 
+    result.innerHTML = `<h4>${error.response.data}</h4>`; 
    }
 
 }
